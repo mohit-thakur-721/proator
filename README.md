@@ -1,4 +1,4 @@
-# proator
+# proator : The python prototype validator
 Python function prototyping and call time check.
 
 #Source code sample to use Proator:
