@@ -1,7 +1,7 @@
 # proator
 Python function prototyping and call time check.
 
-#Sample code to use Proator.
+#Source code sample to use Proator:
 ```python
 import types
 
@@ -9,40 +9,41 @@ from proator.function_prototype import ovrprototype
 from proator.function_prototype import prototype
 
 @prototype(types.IntType)
-def test_syntax1(a):
-    print "done"
-    pass
-
-#@ovrprototype([types.BooleanType, types.IntType])
-def test_syntax2(a):
+def foo1(a):
     print "done"
     pass
 
 #@prototype(types.BooleanType, types.BooleanType)
-def test_syntax3(a, b):
+def foo2(a, b):
+    print "done"
+    pass
+
+@ovrprototype([types.BooleanType, types.IntType])
+def bar1(a):
     print "done"
     pass
 
 @ovrprototype(
-    [types.BooleanType, types.IntType], 
-    [types.IntType])
-
-def test_syntax4(a, b):
+    [types.StringType, types.IntType],   # parameter types for a
+    [types.IntType])                      # parameter type for b
+def bar2(a, b):
     print "done"
     pass
 
-
-
 if __name__ == '__main__':
     # single type for one feild.
-    test_syntax1(True)
-    test_syntax1(1)
-    test_syntax1("Hello")    # This will fail as input parameter type is mismatched.
+    foo1(True)
+    foo1(1)
+    foo1("Hello")    # This will fail as input parameter type is mismatched.
+    foo2(True, False)
+    foo2(True, "xyz") # This will fail as input parameter type is mismatched.
+    foo2(True) # This will fail as mismatch in number of arguments.
     
-	# multiple type for one feild.
-    test_syntax2(1)
-    test_syntax2(True)
-    test_syntax3(True, False)
-    test_syntax4(5, False)
-    test_syntax4(True, 7)
+    # multiple type for one feild.
+    bar1(1)               # integer is allowed
+    bar1(True)            # boolean is allowed
+    bar1("xyz")           # This will fail as input parameter type is mismatched.
+    bar2(5, 5)            # integer, integer is allowed 
+    bar2("Hello", 5)      # string , integer is allowed
+    bar2(5, "Hello")      # not allowed, will fails because integer, string is not allowed.
 ```
