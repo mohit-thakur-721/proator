@@ -2,12 +2,11 @@
 Python function prototyping and call time check.
 
 #Sample code to use Proator.
-
+```python
 import types
 
 from proator.function_prototype import ovrprototype
 from proator.function_prototype import prototype
-
 
 @prototype(types.IntType)
 def test_syntax1(a):
@@ -46,3 +45,4 @@ if __name__ == '__main__':
     test_syntax3(True, False)
     test_syntax4(5, False)
     test_syntax4(True, 7)
+```
