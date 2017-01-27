@@ -1,12 +1,11 @@
-# proator (The python prototype validator) 
-Python function prototyping and call time check. 
+# proator (The python PROtotype validATOR) 
+Python function prototyping and call time check.
 Validates/restricts the input parameter types of any python function.
 
 #How to install Proator using pip:
 ```
 $ pip install proator
 ```
-
 #Source code sample to use Proator:
 ```python
 import types
